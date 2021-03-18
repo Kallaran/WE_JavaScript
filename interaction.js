@@ -7,6 +7,12 @@ function DnD(canvas, interactor) {
 	// Developper les 3 fonctions gérant les événements
 
 	// Associer les fonctions précédentes aux évènements du canvas.
+
+
+	this.x_InitialPos = 0;
+	this.y_InitialPos = 0; 
+	this.x_FinalPos = 0; 
+	this.y_FinalPos = 0; 
 };
 
 
