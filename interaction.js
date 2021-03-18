@@ -16,6 +16,18 @@ function DnD(canvas, interactor) {
 };
 
 
+
+DnD.prototype.pression = function (evt) {
+};
+
+DnD.prototype.deplacement = function (evt) {
+};
+
+DnD.prototype.relachement = function (evt) {
+};
+
+
+
 // Place le point de l'événement evt relativement à la position du canvas.
 function getMousePosition(canvas, evt) {
   var rect = canvas.getBoundingClientRect();
