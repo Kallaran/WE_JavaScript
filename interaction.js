@@ -9,22 +9,50 @@ function DnD(canvas, interactor) {
 	// Associer les fonctions précédentes aux évènements du canvas.
 
 
+
 	this.x_InitialPos = 0;
 	this.y_InitialPos = 0; 
 	this.x_FinalPos = 0; 
 	this.y_FinalPos = 0; 
+
+	this.isPressed = false;
+
+	this.canvas = canvas;
+	this.interactor = interactor;
+
+
+	this.pression = function (evt) {
+		this.isPressed = true;
+		this.x_InitialPos = getMousePosition(this.canvas, evt).x;
+		this.y_InitialPos = getMousePosition(this.canvas, evt).y;
+		console.log("pression : " , this.x_InitialPos , this.y_InitialPos);
+	}.bind(this);
+
+	this.deplacement = function (evt) {
+		if(this.isPressed){
+			this.x_FinalPos = getMousePosition(this.canvas, evt).x;
+			this.y_FinalPos = getMousePosition(this.canvas, evt).y;
+			console.log("deplacement :" , this.x_FinalPos , this.y_FinalPos);
+
+		}
+	}.bind(this);
+
+	this.relachement = function (evt) {
+		this.isPressed = false;
+		this.x_FinalPos = getMousePosition(this.canvas, evt).x;
+		this.y_FinalPos = getMousePosition(this.canvas, evt).y;
+		console.log("relachement :" ,this.x_FinalPos , this.y_FinalPos);
+
+	}.bind(this);
+
+
+
+	canvas.addEventListener('mousedown', this.pression, false);
+	canvas.addEventListener('mousemove', this.deplacement, false);
+	canvas.addEventListener('mouseup', this.relachement, false);
 };
 
 
-
-DnD.prototype.pression = function (evt) {
-};
-
-DnD.prototype.deplacement = function (evt) {
-};
-
-DnD.prototype.relachement = function (evt) {
-};
 
 
 
