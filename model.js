@@ -13,7 +13,7 @@ function Form(color, thickness){
 	this.thickness = thickness;
 };
 
-function Rectangle(color, thickness, x_topLeft, y_topLeft, width, height) {
+function Rectangle(thickness, x_topLeft, y_topLeft, width, height, color) {
   Form.call(this, color, thickness)
 
   this.x_topLeft = x_topLeft;
@@ -21,6 +21,7 @@ function Rectangle(color, thickness, x_topLeft, y_topLeft, width, height) {
   this.width = width;
   this.height = height;
 };
+
 
 
 function Line(color, thickness, x_A, y_A, x_B, y_B) {
